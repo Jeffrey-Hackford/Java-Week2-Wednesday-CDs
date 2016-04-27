@@ -1,9 +1,17 @@
 #if ($CD)
   <h1>$CD.getTitle()</h1>
 
-  #if ($CD.getArtist())
-    <p>By <a href= "/artist">$CD.getArtist()</a></p>
+  #if (!$CD.getArtist().equals(""))
+    <p>By <a href= "/$CD.getArtist()">$CD.getArtist()</a></p>
+
+
+    <br>
   #else
+  <form action="/CD/$CD.getId()/artist/new" method="post">
+    <label for="artist">Enter the Artist:</label>
+    <input id="artist" name="artist" type="text">
+    <button type="submit" class="btn btn-success">Add artist</button>
+  </form>
   #end
 #else
   <h1> CD not found </h1>

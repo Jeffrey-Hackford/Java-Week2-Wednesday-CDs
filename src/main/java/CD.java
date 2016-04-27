@@ -10,7 +10,7 @@ public class CD {
     mTitle = title;
     CDList.add(this);
     mID = CDList.size();
-    mArtist = "test";
+    mArtist= "";
   }
 
   public String getTitle() {
@@ -44,7 +44,7 @@ public class CD {
   public static ArrayList<CD> searchByArtist(String artist) {
     ArrayList<CD> newList = new ArrayList<CD>();
     for(CD cd : CDList) {
-      if (cd.getArtist() == artist) {
+      if (cd.getArtist().equals(artist)) {
         newList.add(cd);
       }
     }
