@@ -10,6 +10,7 @@ public class CD {
     mTitle = title;
     CDList.add(this);
     mID = CDList.size();
+    mArtist = "test";
   }
 
   public String getTitle() {
@@ -26,5 +27,27 @@ public class CD {
 
   public static ArrayList<CD> all() {
     return CDList;
+  }
+
+  public int getId() {
+    return mID;
+  }
+
+  public static CD find(int id) {
+    try {
+      return CDList.get(id -1);
+    } catch (IndexOutOfBoundsException e) {
+      return null;
+    }
+  }
+
+  public static ArrayList<CD> searchByArtist(String artist) {
+    ArrayList<CD> newList = new ArrayList<CD>();
+    for(CD cd : CDList) {
+      if (cd.getArtist() == artist) {
+        newList.add(cd);
+      }
+    }
+    return newList;
   }
 }

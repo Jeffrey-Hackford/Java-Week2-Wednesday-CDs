@@ -1,0 +1,8 @@
+<h1>$artist</h1>
+<ul>
+  #foreach ($CD in $CDs)
+    <li><a href="/CD/$CD.getId()">$CD.getTitle()</a></li>
+  #end
+</ul>
+
+<a href="/CD-form">Add New CD</a>
